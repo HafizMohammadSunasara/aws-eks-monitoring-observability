@@ -1,0 +1,32 @@
+# Sensitive material — never commit credentials or live kubeconfigs
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.pfx
+*.key
+credentials
+credentials.*
+kubeconfig
+kubeconfig.*
+*.kubeconfig
+.aws/
+.kube/
+secrets/
+private/
+terraform.tfstate*
+*.tfstate*
+*.tfvars
+
+# Exported local diagnostics and temporary deliverables
+local-evidence/
+out/
+dist/
+*.zip
+*.log
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
+__pycache__/

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Encrypted EBS gp3 persistence layout</title><desc id="desc">Three conceptual isometric storage modules represent the user-confirmed ten, five, and two GiB EBS PVC allocations.</desc>
+<defs>
+ <pattern id="lines" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M25 0H0V25" stroke="#D8D4CA" fill="none"/></pattern>
+ <filter id="sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="12" dy="20" stdDeviation="14" flood-color="#111418" flood-opacity=".16"/></filter>
+ <style>.head{font:900 65px 'DejaVu Sans',Arial,sans-serif;letter-spacing:-2.7px}.ey{font:700 17px 'Liberation Sans',Arial,sans-serif;letter-spacing:3.5px}.tag{font:700 18px 'Liberation Sans',Arial,sans-serif;letter-spacing:1px}.big{font:900 74px 'DejaVu Sans',Arial,sans-serif;letter-spacing:-3px}.body{font:400 19px 'Liberation Sans',Arial,sans-serif}.mono{font:700 17px 'Liberation Mono',monospace}</style>
+</defs>
+<rect width="1600" height="900" fill="#F1EDE3"/><rect width="1600" height="900" fill="url(#lines)"/>
+<rect width="1600" height="11" fill="#C8F542"/>
+<text x="77" y="65" class="ey" fill="#304CFF">PHYSICAL EVIDENCE / STORAGE PLAN 04</text>
+<text x="75" y="146" class="head" fill="#111418">PERSISTENCE HAS WEIGHT.</text>
+<text x="79" y="192" class="body" fill="#62686A">Three encrypted Amazon EBS volumes · one CSI StorageClass · evidence-backed allocation.</text>
+<g transform="translate(83 247)"><rect x="0" y="0" width="1435" height="483" rx="25" fill="#111418"/><path d="M30 426H1400" stroke="#657278" stroke-width="2" stroke-dasharray="6 12"/>
+ <g transform="translate(100 70)">
+  <path d="M0 95L179-4L361 102L181 203Z" fill="#435AFA"/>
+  <path d="M0 95V257L181 362V203Z" fill="#2435B5"/>
+  <path d="M181 203V362L361 259V102Z" fill="#304CFF"/>
+  <path d="M30 117L180 32L328 116L180 202Z" fill="#263EE1" stroke="#A0B0FF" stroke-width="2"/>
+  <path d="M73 93L180 32L284 91L176 151Z" fill="none" stroke="#D3DBFF" stroke-width="4"/>
+  <path d="M65 174L158 229M65 212L158 267M65 251L158 305" stroke="#9AA8FF" stroke-width="5"/>
+  <text x="195" y="246" class="mono" fill="#E1E5FF" transform="rotate(-29 195 246)">ENCRYPTED</text>
+ </g>
+ <g transform="translate(559 131)">
+  <path d="M0 95L151 10L304 101L151 185Z" fill="#FF916B"/>
+  <path d="M0 95V217L151 307V185Z" fill="#C74521"/>
+  <path d="M151 185V307L304 220V101Z" fill="#FF5722"/>
+  <path d="M24 109L152 38L276 109L150 182Z" fill="#DA451F" stroke="#FFB9A6" stroke-width="3"/>
+  <path d="M50 133L151 77L246 130L150 184Z" stroke="#FFCEBF" fill="none" stroke-width="4"/>
+  <path d="M48 175L123 220M48 208L123 252" stroke="#FFC3B1" stroke-width="5"/>
+ </g>
+ <g transform="translate(999 189)">
+  <path d="M0 81L122 13L244 82L122 151Z" fill="#ECFFAA"/>
+  <path d="M0 81V177L122 246V151Z" fill="#7B9C22"/>
+  <path d="M122 151V246L244 175V82Z" fill="#C8F542"/>
+  <path d="M22 95L122 39L220 94L121 150Z" fill="#AFCF38" stroke="#F2FFC9" stroke-width="3"/>
+  <path d="M45 121L122 78L198 121" fill="none" stroke="#F2FFC9" stroke-width="4"/>
+  <path d="M39 163L101 200" stroke="#E8FFB7" stroke-width="5"/>
+ </g>
+ <text x="124" y="448" class="ey" fill="#9EAEFF">VOLUME 01</text><text x="581" y="448" class="ey" fill="#FFB29C">VOLUME 02</text><text x="1033" y="448" class="ey" fill="#DDFB8D">VOLUME 03</text>
+</g>
+<g transform="translate(83 740)">
+ <rect width="1435" height="120" rx="12" fill="#F9F8F2" stroke="#C8C9BE" stroke-width="2"/>
+ <rect x="0" y="0" width="475" height="120" fill="#E1E7FF"/>
+ <rect x="476" y="0" width="475" height="120" fill="#FDE3D9"/>
+ <rect x="952" y="0" width="483" height="120" fill="#E5F3BE"/>
+ <text x="27" y="41" class="tag" fill="#304CFF">PROMETHEUS</text><text x="27" y="96" class="big" fill="#111418" style="font-size:58px">10<tspan style="font-size:28px"> Gi</tspan></text>
+ <text x="501" y="41" class="tag" fill="#C74521">GRAFANA</text><text x="501" y="96" class="big" fill="#111418" style="font-size:58px">5<tspan style="font-size:28px"> Gi</tspan></text>
+ <text x="977" y="41" class="tag" fill="#587812">ALERTMANAGER</text><text x="977" y="96" class="big" fill="#111418" style="font-size:58px">2<tspan style="font-size:28px"> Gi</tspan></text>
+ <text x="1373" y="100" class="mono" text-anchor="end" fill="#587812">17 Gi</text>
+</g>
+<g transform="translate(995 35)"><rect width="510" height="42" rx="20" fill="#111418"/><circle cx="23" cy="21" r="7" fill="#C8F542"/><text x="44" y="28" class="mono" fill="#F1EDE3">gp3-monitoring · CSI · BOUND</text></g>
+</svg>

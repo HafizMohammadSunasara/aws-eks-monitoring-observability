@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Verified EKS monitoring outcomes</title><desc id="desc">Fact panel for snapshot verified on 16 November 2026: two nodes, seven running monitoring pods, three bound PVCs, seventeen GiB of EBS gp3 allocated, no down target at Prometheus query time; notes unverified alert routing and remote access.</desc>
+<defs><pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M44 0H0V44" fill="none" stroke="#2A3237" stroke-width="1"/></pattern><style>.ey{font:700 18px 'Liberation Sans',Arial,sans-serif;letter-spacing:4px}.big{font:900 105px 'DejaVu Sans',Arial,sans-serif;letter-spacing:-5px}.head{font:800 25px 'Liberation Sans',Arial,sans-serif}.sub{font:400 19px 'Liberation Sans',Arial,sans-serif}.mono{font:700 17px 'Liberation Mono',monospace;letter-spacing:.5px}</style></defs>
+<rect width="1600" height="900" fill="#F1EDE3"/>
+<rect width="1600" height="15" fill="#C8F542"/>
+<text x="75" y="67" class="ey" fill="#304CFF">VERIFICATION REGISTER  /  06</text>
+<text x="70" y="144" style="font:900 63px 'DejaVu Sans',Arial,sans-serif;letter-spacing:-2.5px;fill:#111418">THE READOUT, NOT THE HYPE.</text>
+<rect x="77" y="172" width="1446" height="548" rx="24" fill="#111418"/>
+<rect x="77" y="172" width="1446" height="548" rx="24" fill="url(#grid)"/>
+<g transform="translate(107 203)">
+ <g>
+  <rect width="443" height="224" rx="15" fill="#F1EDE3"/>
+  <rect width="443" height="13" rx="5" fill="#304CFF"/>
+  <text x="26" y="112" class="big" fill="#111418" style="font-size:96px">02</text>
+  <text x="26" y="150" class="head" fill="#304CFF">EKS NODES</text>
+  <text x="26" y="180" class="sub" fill="#444D52">Worker nodes present</text>
+  <text x="26" y="208" class="mono" fill="#6D7579">kubectl top nodes</text>
+ </g>
+ <g transform="translate(473 0)">
+  <rect width="443" height="224" rx="15" fill="#F1EDE3"/>
+  <rect width="443" height="13" rx="5" fill="#FF5722"/>
+  <text x="26" y="112" class="big" fill="#111418" style="font-size:96px">07</text>
+  <text x="26" y="150" class="head" fill="#C94823">MONITORING PODS</text>
+  <text x="26" y="180" class="sub" fill="#444D52">All Running · zero restarts</text>
+  <text x="26" y="208" class="mono" fill="#6D7579">kubectl get pods</text>
+ </g>
+ <g transform="translate(946 0)">
+  <rect width="443" height="224" rx="15" fill="#F1EDE3"/>
+  <rect width="443" height="13" rx="5" fill="#C8F542"/>
+  <text x="26" y="112" class="big" fill="#111418" style="font-size:96px">03</text>
+  <text x="26" y="150" class="head" fill="#5B7923">BOUND PVCs</text>
+  <text x="26" y="180" class="sub" fill="#444D52">Encrypted gp3 EBS</text>
+  <text x="26" y="208" class="mono" fill="#6D7579">kubectl get pvc</text>
+ </g>
+ <g transform="translate(0 254)">
+  <rect width="671" height="234" rx="15" fill="#232D34" stroke="#46535A" stroke-width="2"/>
+  <text x="24" y="53" class="ey" fill="#9FBEFF">EBS STORAGE ALLOCATED</text>
+  <text x="24" y="150" class="big" fill="#F1EDE3" style="font-size:94px">17<tspan style="font-size:42px"> Gi</tspan></text>
+  <rect x="26" y="177" width="599" height="20" rx="10" fill="#485253"/>
+  <rect x="26" y="177" width="353" height="20" rx="10" fill="#304CFF"/>
+  <rect x="379" y="177" width="176" height="20" fill="#FF5722"/>
+  <rect x="555" y="177" width="70" height="20" rx="10" fill="#C8F542"/>
+  <text x="29" y="221" class="mono" fill="#D5DDDC">10Gi  PROM  /  5Gi  GRAFANA  /  2Gi  AM</text>
+ </g>
+ <g transform="translate(703 254)">
+  <rect width="686" height="234" rx="15" fill="#232D34" stroke="#46535A" stroke-width="2"/>
+  <text x="26" y="55" class="ey" fill="#D8F99B">PROMETHEUS TARGET CHECK</text>
+  <text x="24" y="126" style="font:900 61px 'DejaVu Sans',Arial,sans-serif;letter-spacing:-3px;fill:#F1EDE3">up == 0</text>
+  <rect x="483" y="82" width="160" height="57" rx="13" fill="#C8F542"/>
+  <text x="563" y="118" class="head" text-anchor="middle" fill="#111418">EMPTY</text>
+  <text x="27" y="170" class="sub" fill="#BBC5C7">No down target returned at capture time.</text>
+  <text x="27" y="211" class="mono" fill="#86979B">SNAPSHOT QUERY · NOT AN SLA</text>
+ </g>
+</g>
+<g transform="translate(77 751)">
+ <rect width="1446" height="109" rx="14" fill="#E2DED3"/>
+ <rect x="0" y="0" width="14" height="109" rx="5" fill="#FF5722"/>
+ <text x="38" y="36" class="ey" fill="#C94823">SCOPE HONESTY / STILL OUTSIDE THIS VALIDATION</text>
+ <text x="38" y="71" class="sub" fill="#111418">Outbound Alertmanager notifications not tested  ·  External HTTPS and PC-independent Grafana access not configured.</text>
+ <text x="1328" y="97" text-anchor="end" class="mono" fill="#606A70">2026-11-16</text>
+</g>
+</svg>

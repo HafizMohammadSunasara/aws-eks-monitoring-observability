@@ -1,0 +1,32 @@
+name: Validate portfolio package
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  static-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate structure, manifests and evidence inventory
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json
+          root = Path(".")
+          png = sorted((root / "evidence").glob("*.png"))
+          svg = sorted((root / "graphics").glob("*.svg"))
+          graphic_png = sorted((root / "graphics").glob("*.png"))
+          all_files = [p for p in root.rglob("*") if p.is_file() and ".git" not in p.parts]
+          assert len(all_files) == 50, f"Expected 50 project files; found {len(all_files)}"
+          assert len(png) == 13, f"Expected 13 original screenshot evidence files, found {len(png)}"
+          assert len(svg) == len(graphic_png) == 6, "Six SVG/PNG graphic pairs are required"
+          for source in svg:
+              assert (source.with_suffix(".png")).exists(), f"Missing export for {source}"
+          json.loads((root / "manifests/cloudwatch-addon-config.json").read_text(encoding="utf-8"))
+          for required in ("README.md", "DEEP-DIVE.md", "EVIDENCE-INDEX.md"):
+              assert (root / required).is_file(), f"Missing {required}"
+          print("Portfolio structure and reference JSON verified.")
+          PY

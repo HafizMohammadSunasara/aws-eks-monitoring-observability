@@ -1,0 +1,15 @@
+# PromQL cookbook: run each non-comment line separately in Prometheus Query.
+# 1. Scrape targets currently DOWN; empty result observed at capture time.
+up == 0
+
+# 2. Count currently UP target endpoints.
+count(up == 1)
+
+# 3. Ready nodes (values from kube-state-metrics).
+sum(kube_node_status_condition{condition="Ready",status="true"} == 1)
+
+# 4. CPU consumption by node in cores (node-exporter).
+sum by (instance) (rate(node_cpu_seconds_total{mode!="idle"}[5m]))
+
+# 5. Alerts currently firing (empty does not prove notification delivery).
+ALERTS{alertstate="firing"}

@@ -1,0 +1,20 @@
+# PromQL cookbook for the existing gitops-demo namespace.
+# Each query is independent. This does NOT instrument the Flask app's custom endpoints.
+
+# 1. Container CPU rate per GitOps Flask pod (cores).
+sum by (pod) (rate(container_cpu_usage_seconds_total{namespace="gitops-demo",pod=~"gitops-flask-.*",container!="",container!="POD"}[5m]))
+
+# 2. Working-set memory per Flask pod (bytes).
+sum by (pod) (container_memory_working_set_bytes{namespace="gitops-demo",pod=~"gitops-flask-.*",container!="",container!="POD"})
+
+# 3. Ready replicas reported by the deployment.
+kube_deployment_status_replicas_available{namespace="gitops-demo",deployment="gitops-flask"}
+
+# 4. Desired replicas reported by the deployment.
+kube_deployment_spec_replicas{namespace="gitops-demo",deployment="gitops-flask"}
+
+# 5. Pod restarts.
+sum by (pod) (kube_pod_container_status_restarts_total{namespace="gitops-demo",pod=~"gitops-flask-.*"})
+
+# 6. Namespace inbound traffic by pod (bytes per second).
+sum by (pod) (rate(container_network_receive_bytes_total{namespace="gitops-demo",pod=~"gitops-flask-.*"}[5m]))

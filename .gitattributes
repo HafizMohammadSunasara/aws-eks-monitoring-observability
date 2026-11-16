@@ -1,0 +1,9 @@
+# Keep evidence and artwork as binary artifacts
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.pdf binary
+
+# Graphics are authored SVG; language statistics should reflect scripts/configs
+graphics/*.svg linguist-generated

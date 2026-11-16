@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">GitOps control plane and observability plane</title><desc id="desc">Existing GitOps Flask deployment is managed by Argo CD; separate passive Prometheus and Grafana collect metrics without changing the app.</desc>
+<defs><pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#BEC4B7"/></pattern><marker id="arrBlue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#304CFF"/></marker><marker id="arrOrange" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#FF5722"/></marker><style>.h{font:900 60px 'DejaVu Sans',Arial,sans-serif;letter-spacing:-2.3px}.eye{font:700 18px 'Liberation Sans',Arial,sans-serif;letter-spacing:3.1px}.node{font:800 27px 'Liberation Sans',Arial,sans-serif}.desc{font:400 18px 'Liberation Sans',Arial,sans-serif}.mini{font:700 16px 'Liberation Mono',monospace}</style></defs>
+<rect width="1600" height="900" fill="#F1EDE3"/><rect width="1600" height="900" fill="url(#dots)"/>
+<rect width="1600" height="12" fill="#304CFF"/>
+<text x="73" y="69" class="eye" fill="#304CFF">INTERFACE BETWEEN SYSTEMS / 05</text>
+<text x="72" y="147" class="h" fill="#111418">RECONCILE. THEN OBSERVE.</text>
+<text x="76" y="193" class="desc" fill="#5B6469">Deployment control and runtime telemetry are complementary, not interchangeable.</text>
+<rect x="76" y="232" width="1448" height="556" rx="27" fill="#111418"/>
+<path d="M795 266V740" stroke="#526065" stroke-width="2" stroke-dasharray="7 12"/>
+<g transform="translate(112 268)">
+ <rect width="612" height="52" rx="10" fill="#304CFF"/>
+ <text x="23" y="35" class="eye" fill="white">A / GITOPS CONTROL PLANE</text>
+ <g transform="translate(45 96)">
+  <rect width="515" height="89" rx="15" fill="#28323B" stroke="#5470FF" stroke-width="2"/>
+  <text x="24" y="36" class="eye" fill="#9EAEFF">SOURCE OF TRUTH</text>
+  <text x="24" y="69" class="node" fill="#F1EDE3">Git repository + manifests</text>
+ </g>
+ <path d="M298 187V232" stroke="#304CFF" stroke-width="6" marker-end="url(#arrBlue)"/>
+ <g transform="translate(45 248)">
+  <rect width="515" height="89" rx="15" fill="#28323B" stroke="#5470FF" stroke-width="2"/>
+  <text x="24" y="36" class="eye" fill="#9EAEFF">RECONCILIATION</text>
+  <text x="24" y="69" class="node" fill="#F1EDE3">Argo CD</text>
+ </g>
+ <path d="M298 337V382" stroke="#304CFF" stroke-width="6" marker-end="url(#arrBlue)"/>
+ <g transform="translate(45 396)">
+  <rect width="515" height="89" rx="15" fill="#E1E7FF"/>
+  <rect x="17" y="17" width="12" height="55" rx="3" fill="#304CFF"/>
+  <text x="49" y="33" class="eye" fill="#304CFF">AWS EKS · GITOPS-DEMO</text>
+  <text x="49" y="71" class="node" fill="#111418">2 running Flask pods</text>
+ </g>
+</g>
+<g transform="translate(858 268)">
+ <rect width="602" height="52" rx="10" fill="#FF5722"/>
+ <text x="23" y="35" class="eye" fill="#111418">B / PASSIVE OBSERVABILITY</text>
+ <g transform="translate(47 96)">
+  <rect width="509" height="89" rx="15" fill="#3A2E2A" stroke="#FF8862" stroke-width="2"/>
+  <text x="24" y="36" class="eye" fill="#FFB298">CLUSTER RUNTIME</text>
+  <text x="24" y="69" class="node" fill="#F1EDE3">kubelet + cAdvisor</text>
+ </g>
+ <path d="M301 187V231" stroke="#FF5722" stroke-width="6" marker-end="url(#arrOrange)"/>
+ <g transform="translate(47 248)">
+  <rect width="509" height="89" rx="15" fill="#3A2E2A" stroke="#FF8862" stroke-width="2"/>
+  <text x="24" y="36" class="eye" fill="#FFB298">SCRAPES AND RULES</text>
+  <text x="24" y="69" class="node" fill="#F1EDE3">Prometheus</text>
+ </g>
+ <path d="M301 337V381" stroke="#FF5722" stroke-width="6" marker-end="url(#arrOrange)"/>
+ <g transform="translate(47 396)">
+  <rect width="509" height="89" rx="15" fill="#FCE1D6"/>
+  <rect x="17" y="17" width="12" height="55" rx="3" fill="#FF5722"/>
+  <text x="49" y="33" class="eye" fill="#C9471F">DATA VISUALIZATION</text>
+  <text x="49" y="71" class="node" fill="#111418">Grafana dashboards</text>
+ </g>
+</g>
+<path d="M733 708H851" stroke="#C8F542" stroke-width="6" stroke-dasharray="6 8"/>
+<circle cx="791" cy="708" r="14" fill="#C8F542"/>
+<text x="791" y="714" style="font:800 18px Arial,sans-serif;text-anchor:middle;fill:#111418">+</text>
+<g transform="translate(78 814)"><rect width="1444" height="57" rx="10" fill="#DDE0D5"/><text x="28" y="36" class="mini" fill="#111418">NO FLASK APP CHANGE REQUIRED FOR THE SHOWN NODE / POD METRICS.</text><text x="1389" y="36" class="mini" text-anchor="end" fill="#304CFF">PASSIVE · OBSERVED</text></g>
+</svg>

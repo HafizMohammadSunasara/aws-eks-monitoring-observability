@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">AWS EKS telemetry architecture</title><desc id="desc">Original technical map separating Prometheus metrics and CloudWatch logging. EBS GP3 storage supports Prometheus, Grafana and Alertmanager.</desc>
+<defs>
+ <pattern id="p" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1.1" fill="#C8C6BF"/></pattern>
+ <marker id="blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#304CFF"/></marker>
+ <marker id="orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#FF5722"/></marker>
+ <style>.h{font:900 61px 'DejaVu Sans',Arial,sans-serif;letter-spacing:-2.6px;fill:#111418}.ey{font:700 16px 'Liberation Sans',Arial,sans-serif;letter-spacing:4px}.small{font:700 16px 'Liberation Sans',Arial,sans-serif;letter-spacing:1.2px}.node{font:700 24px 'Liberation Sans',Arial,sans-serif}.sub{font:400 16px 'Liberation Sans',Arial,sans-serif}.tag{font:700 15px 'Liberation Sans',Arial,sans-serif;letter-spacing:2px}</style>
+</defs>
+<rect width="1600" height="900" fill="#F1EDE3"/><rect width="1600" height="900" fill="url(#p)"/>
+<rect width="1600" height="13" fill="#304CFF"/>
+<text x="81" y="70" class="ey" fill="#304CFF">FLIGHT RECORDER / SCHEMATIC 02</text>
+<text x="80" y="148" class="h">TWO SIGNAL PATHS.</text>
+<text x="81" y="186" style="font:400 21px 'Liberation Sans',Arial,sans-serif;fill:#5A6366">One cluster. Distinct metrics and log destinations. No invented integrations.</text>
+<g transform="translate(78 222)">
+ <rect x="0" y="0" width="1444" height="536" rx="28" fill="#111418"/>
+ <rect x="26" y="26" width="1392" height="480" rx="18" fill="none" stroke="#4A5456" stroke-width="2" stroke-dasharray="7 10"/>
+ <rect x="37" y="-15" width="315" height="42" rx="8" fill="#C8F542"/>
+ <text x="60" y="14" class="tag" fill="#111418">AMAZON EKS · US-EAST-1</text>
+ <g transform="translate(73 74)">
+  <rect width="389" height="173" rx="17" fill="#252C30" stroke="#5E6869" stroke-width="1.5"/>
+  <rect width="10" height="173" rx="5" fill="#304CFF"/>
+  <text x="29" y="37" class="small" fill="#9BA6AA">METRICS SOURCES / K8S</text>
+  <text x="29" y="76" class="node" fill="#F1EDE3">kubelet + cAdvisor</text>
+  <text x="29" y="113" class="sub" fill="#D4D8D7">node-exporter</text>
+  <text x="29" y="142" class="sub" fill="#D4D8D7">kube-state-metrics</text>
+ </g>
+ <g transform="translate(550 74)">
+  <rect width="323" height="173" rx="17" fill="#304CFF"/>
+  <text x="26" y="39" class="small" fill="#DBE4FF">TIME-SERIES COLLECTION</text>
+  <text x="26" y="90" class="node" fill="#FFFFFF" style="font-size:33px">PROMETHEUS</text>
+  <text x="27" y="129" class="sub" fill="#E2E7FF">10Gi · encrypted EBS gp3</text>
+ </g>
+ <g transform="translate(989 63)">
+  <rect width="365" height="89" rx="14" fill="#F1EDE3"/>
+  <text x="22" y="37" class="small" fill="#304CFF">DASHBOARDS</text>
+  <text x="22" y="70" class="node" fill="#111418">Grafana  <tspan style="font:400 17px 'Liberation Sans'">5Gi gp3</tspan></text>
+  <rect x="0" y="105" width="365" height="89" rx="14" fill="#30373B" stroke="#6C7778"/>
+  <text x="22" y="141" class="small" fill="#C8F542">ALERT EVALUATION / ROUTING</text>
+  <text x="22" y="173" class="node" fill="#F1EDE3">Alertmanager  <tspan style="font:400 16px 'Liberation Sans'">2Gi</tspan></text>
+ </g>
+ <path d="M462 160H540" stroke="#304CFF" stroke-width="7" fill="none" marker-end="url(#blue)"/>
+ <path d="M873 132H973" stroke="#304CFF" stroke-width="7" fill="none" marker-end="url(#blue)"/>
+ <path d="M873 195H925V222H972" stroke="#C8F542" stroke-width="5" fill="none" stroke-dasharray="10 8" marker-end="url(#blue)"/>
+ <text x="469" y="144" class="tag" fill="#8EA0FF">SCRAPE</text>
+ <path d="M63 280H1380" stroke="#4C575C" stroke-width="2" stroke-dasharray="4 12"/>
+ <g transform="translate(73 318)">
+  <rect width="389" height="151" rx="17" fill="#252C30" stroke="#5E6869" stroke-width="1.5"/>
+  <rect width="10" height="151" rx="5" fill="#FF5722"/>
+  <text x="29" y="37" class="small" fill="#B2B9B9">CLUSTER LOGS / PERFORMANCE</text>
+  <text x="29" y="80" class="node" fill="#F1EDE3">Workload + node logs</text>
+  <text x="29" y="116" class="sub" fill="#D4D8D7">Container Insights inputs</text>
+ </g>
+ <g transform="translate(550 318)">
+  <rect width="323" height="151" rx="17" fill="#452B24" stroke="#FF5722" stroke-width="2"/>
+  <text x="26" y="37" class="small" fill="#FFB19A">AWS ADD-ON</text>
+  <text x="26" y="83" class="node" fill="#FFFFFF">CloudWatch agent</text>
+  <text x="26" y="118" class="sub" fill="#FFCAB8">CloudWatch Observability</text>
+ </g>
+ <g transform="translate(989 318)">
+  <rect width="365" height="151" rx="17" fill="#FF5722"/>
+  <text x="23" y="36" class="small" fill="#42271F">AWS MANAGED DESTINATION</text>
+  <text x="23" y="83" class="node" fill="#FFFFFF">CloudWatch</text>
+  <text x="23" y="119" class="sub" fill="#FFFFFF">Logs + Container Insights</text>
+ </g>
+ <path d="M462 389H540" stroke="#FF5722" stroke-width="7" fill="none" marker-end="url(#orange)"/>
+ <path d="M873 389H973" stroke="#FF5722" stroke-width="7" fill="none" marker-end="url(#orange)"/>
+ <text x="469" y="367" class="tag" fill="#FF9F80">EXPORT</text>
+</g>
+<g transform="translate(78 789)">
+ <rect width="1444" height="76" rx="15" fill="#DCDACF"/>
+ <rect width="11" height="76" fill="#C8F542"/>
+ <text x="31" y="30" class="tag" fill="#111418">PERSISTENCE LAYER</text>
+ <text x="31" y="59" class="sub" fill="#374146">gp3-monitoring · encrypted EBS volumes · 10Gi Prometheus + 5Gi Grafana + 2Gi Alertmanager</text>
+ <text x="1179" y="47" class="small" fill="#304CFF">17Gi TOTAL</text>
+</g>
+</svg>
